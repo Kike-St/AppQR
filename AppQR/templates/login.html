@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #217dbb;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        .btn-flotante {
+            font-size: 16px; /* Cambiar el tamaño de la tipografia */
+            text-transform: uppercase; /* Texto en mayusculas */
+            font-weight: bold; /* Fuente en negrita o bold */
+            color: #ffffff; /* Color del texto */
+            border-radius: 5px; /* Borde del boton */
+            letter-spacing: 2px; /* Espacio entre letras */
+            background-color: #E91E63; /* Color de fondo */
+            padding: 18px 30px; /* Relleno del boton */
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            transition: all 300ms ease 0ms;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+        }
+        .btn-flotante:hover {
+            background-color: #2c2fa5; /* Color de fondo al pasar el cursor */
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-7px);
+        }
+        @media only screen and (max-width: 600px) {
+             .btn-flotante {
+                font-size: 14px;
+                padding: 12px 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff;">Iniciar Sesión</h1>
+    </header>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button> <a href="{{ url_for('signup') }}">¿No tienes una cuenta?</a>
+        </form>
+        
+        <p>O inicia sesión con un <a href="{{ url_for('camera_login') }}">Código QR</a></p>
+
+        <p>{{ get_flashed_messages() }}</p>
+        <p><a href="{{ url_for('index') }}" class="btn-flotante">Inicio</a></p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #217dbb;
+        }
+
+        .btn.signup {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff;">Bienvenido a UAEMex Plantel Texcoco</h1>
+    </header>
+    <div class="container">
+        <a href="{{ url_for('signup') }}" class="btn signup">Registrarse</a>
+        <a href="{{ url_for('login') }}" class="btn">Iniciar Sesión</a>
+    </div>
+</body>
+</html>

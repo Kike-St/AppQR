@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel de Control</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            color: #217dbb;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-flotante {
+            font-size: 16px; /* Cambiar el tamaño de la tipografia */
+            text-transform: uppercase; /* Texto en mayusculas */
+            font-weight: bold; /* Fuente en negrita o bold */
+            color: #ffffff; /* Color del texto */
+            border-radius: 5px; /* Borde del boton */
+            letter-spacing: 2px; /* Espacio entre letras */
+            background-color: #E91E63; /* Color de fondo */
+            padding: 18px 30px; /* Relleno del boton */
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            transition: all 300ms ease 0ms;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+        }
+        .btn-flotante:hover {
+            background-color: #2c2fa5; /* Color de fondo al pasar el cursor */
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-7px);
+        }
+        @media only screen and (max-width: 600px) {
+             .btn-flotante {
+                font-size: 14px;
+                padding: 12px 20px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff;">Panel de Control</h1>
+    </header>
+    <div class="container">
+        <h1>Bienvenido, {{ username }}</h1>
+        <p>¡Has iniciado sesión con éxito! Aquí puedes ver tu código QR:</p>
+        <img src="{{ url_for('view_qr') }}" alt="Código QR">
+        <br>
+        <a href="{{ url_for('download_qr') }}" download="codigo_qr.png">Descargar Código QR</a> 
+        <br>
+        <p><a href="{{ url_for('logout') }}" class="btn-flotante">Cerrar sesión</a></p>
+    </div>
+</body>
+</html>
